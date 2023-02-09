@@ -17,7 +17,13 @@ public class StudentService {
     
     private final StudentRepo studentRepo;
 
-    private List<Student> getAllStudents(){
+    public List<Student> getAllStudents(){
         return studentRepo.findAll();
+    }
+    public Student getStudentById(Long id){
+        return studentRepo.findById(id).get();
+    }
+    public List<Student> getStudentsOfClass(Long class_id){
+        return studentRepo.findAllByClassYearId(class_id);
     }
 }

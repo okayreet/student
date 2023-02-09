@@ -8,7 +8,7 @@ import lombok.Data;
 
 @Data
 @Entity
-public class ClassYear {
+public class Subject {
     @Id
     @JsonIgnore 
     private Long id;

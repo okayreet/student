@@ -16,10 +16,10 @@ import lombok.Data;
 
 @Data
 @Entity
-public class Student {
+public class Teacher {
     @Id
-    @SequenceGenerator(name = "student_id_sequence", sequenceName = "student_id_sequence")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "student_id_sequence")
+    @SequenceGenerator(name = "teacher_id_sequence", sequenceName = "teacher_id_sequence")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "teacher_id_sequence")
     private Long id;
     private String first_name;
     private String last_name;
@@ -32,6 +32,6 @@ public class Student {
     private String post_code;
     @JsonIgnore 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "class_year_id")
-    private ClassYear classYear;
+    @JoinColumn(name = "subject_id")
+    private Subject subject;
 }

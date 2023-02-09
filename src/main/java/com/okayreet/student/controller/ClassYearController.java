@@ -7,22 +7,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.okayreet.student.service.StudentService;
+import com.okayreet.student.service.ClassYearService;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("api/v1/student")
-public class StudentController {
-    private final StudentService studentService;
+@RequestMapping("api/v1/class")
+public class ClassYearController {
+    private final ClassYearService classYearService;
 
     @GetMapping("/all")
     public ResponseEntity<?> getStudents(){
-        return new ResponseEntity<>(studentService.getAllStudents(), HttpStatus.OK);
+        return new ResponseEntity<>(classYearService.getAllClasses(), HttpStatus.OK);
     }
     @GetMapping("/{student_id}")
     public ResponseEntity<?> getStudentById(@RequestBody Long student_id){
-        return new ResponseEntity<>(studentService.getStudentById(student_id), HttpStatus.OK);
+        return new ResponseEntity<>(classYearService.getClassById(student_id), HttpStatus.OK);
     }
 }
